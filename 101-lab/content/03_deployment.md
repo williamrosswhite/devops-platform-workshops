@@ -18,6 +18,7 @@ The dev project is where applications are deployed. In this case, we will deploy
 
 ```oc:cli
 # retagging the image stream from latest to dev
+# you will need to wait until you see 'Successfully pushed image...' in the logs or you will get error 'rocketchat-[username]:latest is not pointing to an image, cannot use it as the source of a tag'
 oc -n [-tools] tag rocketchat-[username]:latest rocketchat-[username]:dev
 
 # Verify that the `dev` tag has been created
