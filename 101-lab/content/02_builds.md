@@ -34,24 +34,23 @@ oc -n [-tools] new-build https://github.com/BCDevOps/devops-platform-workshops-l
 
 ```
 
---> Found image 8431f8b (21 hours old) in image stream "ocp101a-tools/rocketchat" under tag "latest" for "rocketchat"
+--> Found container image 81d39a8 (3 years old) from registry.access.redhat.com for "registry.access.redhat.com/rhscl/nodejs-8-rhel7"
 
-    Node.js 8 
-    --------- 
+    Node.js 8
+    ---------
     Node.js 8 available as container is a base platform for building and running various Node.js 8 applications and frameworks. Node.js is a platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.
 
     Tags: builder, nodejs, nodejs8
 
+    * An image stream tag will be created as "nodejs-8-rhel7:latest" that will track the source image
     * A Docker build using source code from https://github.com/BCDevOps/devops-platform-workshops-labs/ will be created
-      * The resulting image will be pushed to image stream "rocketchat-[username]:latest"
-      * Use 'start-build' to trigger a new build
+      * The resulting image will be pushed to image stream tag "rocketchat-[username]:latest"
+      * Every time "nodejs-8-rhel7:latest" changes a new build will be triggered
 
 --> Creating resources with label build=rocketchat-[username] ...
-    imagestream "rocketchat-[username]" created
-    buildconfig "rocketchat-[username]" created
+    imagestream.image.openshift.io "rocketchat-[username]" created
+    buildconfig.build.openshift.io "rocketchat-[username]" created
 --> Success
-    Build configuration "rocketchat-[username]" created and build triggered.
-    Run 'oc logs -f bc/rocketchat-[username]' to stream the build progress.
 ```
 
 - The build will take between a couple of minutes to about 15 minutes
